@@ -5,17 +5,11 @@ module WarspiteBot
     module Poke
       extend Discordrb::Commands::CommandContainer
       command(:poke, description: 'Checks for response from Warspite') do |event|
-        channel = event.user.voice_channel
-
         event.respond('Admiral, what is it?')
 
-        next puts "You're not in any voice channel!" unless channel
-
-        puts "Connected to channel #{channel}"
-
-        event.bot.voice_connect(channel)
-
         voice_bot = event.voice
+
+        next puts "Not in channel" unless WarspiteBot::CURRENTCHANNEL.channel == event.user.voice_channel
 
         puts "playing poke"
 
