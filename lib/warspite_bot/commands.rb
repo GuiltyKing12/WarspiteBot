@@ -5,7 +5,7 @@ module WarspiteBot
     Dir["#{File.dirname(__FILE__)}/commands/*.rb"].each { |file| require file }
 
     @commands = [
-      Ping,
+      Poke,
       Eval
     ]
 

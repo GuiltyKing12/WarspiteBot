@@ -52,4 +52,4 @@ build-iPhoneSimulator/
 # mac things
 .DS_Store
 Gemfile.lock
-../data/config.yaml
+/data/config.yaml
