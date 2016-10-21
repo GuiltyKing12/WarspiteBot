@@ -1,10 +1,13 @@
 module WarspiteBot
   # contains all the events
   module Events
-    Dir['lib/warspite_bot/evennts/*.rb'].each { |file| load file }
+    Dir['lib/warspite_bot/events/*.rb'].each { |file| load file }
 
     @events = [
-
+      Mention,
+      MemberJoin,
+      MemberUpdate,
+      Exit
     ]
 
     def self.include!
