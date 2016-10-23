@@ -13,8 +13,10 @@ module WarspiteBot
         event.bot.voice_connect(channel)
 
         voice_bot = event.voice
-
-        event << "I am here"
+        event.server.text_channels.each do |channel|
+          event.bot.send_temporary_message(channel.id, 'Here and ready', 5)
+        end
+        puts "In channel"
       end
     end
   end

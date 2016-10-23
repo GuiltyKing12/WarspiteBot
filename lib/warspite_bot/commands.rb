@@ -8,7 +8,8 @@ module WarspiteBot
       Poke,
       Eval,
       Come,
-      GetStatus
+      GetStatus,
+      ChangeStatus
     ]
 
     def self.include!
