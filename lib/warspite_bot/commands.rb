@@ -7,7 +7,8 @@ module WarspiteBot
     @commands = [
       Poke,
       Eval,
-      Come
+      Come,
+      GetStatus
     ]
 
     def self.include!

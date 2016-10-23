@@ -7,7 +7,7 @@ module WarspiteBot
       Mention,
       MemberJoin,
       MemberUpdate,
-      Exit
+      Ready
     ]
 
     def self.include!
