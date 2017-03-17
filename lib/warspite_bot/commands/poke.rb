@@ -5,7 +5,11 @@ module WarspiteBot
     module Poke
       extend Discordrb::Commands::CommandContainer
       command(:poke, description: 'Checks for response from Warspite') do |event|
-        event.respond('Admiral, what is it?')
+        if event.user.owner? 
+           event.respond('Admiral, what is it?')
+        else
+           event.respond('What is it?')
+        end
 
         voice_bot = event.voice
 

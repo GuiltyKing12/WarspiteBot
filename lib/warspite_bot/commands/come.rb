@@ -6,16 +6,14 @@ module WarspiteBot
       command(:come, description: 'Commands Warspite to connect to current voice channel if in one') do |event|
         channel = event.user.voice_channel
 
-        next puts "You're not in any voice channel!" unless channel
+        next event.bot.send_temporary_message(event.channel.id, 'You are not in a channel!!', 5) unless channel
 
         WarspiteBot::CURRENTCHANNEL.channel = channel
 
         event.bot.voice_connect(channel)
 
         voice_bot = event.voice
-        event.server.text_channels.each do |channel|
-          event.bot.send_temporary_message(channel.id, 'Here and ready', 5)
-        end
+        event.bot.send_temporary_message(event.channel.id, 'Here and ready', 5)
         puts "In channel"
       end
     end
