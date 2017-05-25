@@ -4,13 +4,22 @@ module WarspiteBot
     module GetStatus
       extend Discordrb::Commands::CommandContainer
       command(:status, description: "Gets the status of all users on server") do |event|
-        puts "here"
+        puts "Getting Status"
         message = ""
-        message << "Current user statuses:\n"
+        online = ""
+        offline = ""
+
+        online << "Online Users:\n"
+        offline << "Offline Users:\n"
+
         event.server.members.each do |user|
-          message << "#{user.username}: #{user.status}\n"
+          if user.status == :offline
+            offline << "#{user.username}\n"
+          else 
+            online << "#{user.username}\n"
+          end
         end
-        message
+        message << online << "\n" << offline << "\n"
       end
     end
   end
