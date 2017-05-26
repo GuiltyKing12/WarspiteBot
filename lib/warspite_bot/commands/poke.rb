@@ -1,6 +1,6 @@
 module WarspiteBot
   module Commands
-    # Responds with "Pong!".
+    # Responds with message and voice if in channel with her.
     # This used to check if bot is alive
     module Poke
       extend Discordrb::Commands::CommandContainer
@@ -12,10 +12,11 @@ module WarspiteBot
         end
 
         voice_bot = event.voice
-
+        voice_bot.stop_playing
         next puts "Not in channel" unless WarspiteBot::CURRENTCHANNEL.channel == event.user.voice_channel
+        next puts "Currently Talking" unless !voice_bot.playing?
 
-        puts "playing poke"
+        puts "Warspite speaking"
 
         voice_bot.play_dca('data/poke.dca')
       end
