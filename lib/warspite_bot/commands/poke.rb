@@ -12,13 +12,15 @@ module WarspiteBot
         end
 
         voice_bot = event.voice
-        voice_bot.stop_playing
+        if voice_bot != nil
+          voice_bot.stop_playing
+        end
         next puts "Not in channel" unless WarspiteBot::CURRENTCHANNEL.channel == event.user.voice_channel
         next puts "Currently Talking" unless !voice_bot.playing?
 
         puts "Warspite speaking"
 
-        voice_bot.play_dca('data/poke.dca')
+        voice_bot.play_dca('data/sounds/poke.dca')
       end
     end
   end

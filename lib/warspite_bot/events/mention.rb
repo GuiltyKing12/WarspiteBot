@@ -4,6 +4,7 @@ module WarspiteBot
     module Mention
       extend Discordrb::EventContainer
       mention do |event|
+        Thread.new {event.bot.send_file(event.channel.id, File.new('data/images/warspite.png'))}
         event.respond('Battleship Warspite, reporting for duty')
       end
     end
